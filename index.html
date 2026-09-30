@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Expense Tracker</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Student Expense Tracker</h1>
+        <button id="themeBtn">🌙 Dark Mode</button>
+        <p>Keep track of your spending 💰</p>
+
+
+        <!-- Total Spent -->
+
+        <div class="summary">
+            <h2>Total Spent</h2>
+            <h3 id="totalAmount">₹0</h3>
+        </div>
+
+
+        <!-- Monthly Budget -->
+
+        <div class="budget-box">
+
+            <h2>Monthly Budget</h2>
+
+            <input
+                type="number"
+                id="budgetInput"
+                placeholder="Enter your budget"
+            >
+
+            <button id="saveBudget">Save Budget</button>
+
+            <h3>
+                Remaining: <span id="remainingAmount">₹0</span>
+            </h3>
+<p id="budgetMessage"></p>
+        </div>
+
+
+        <!-- Add Expense -->
+
+        <div class="expense-form">
+
+            <input
+                type="text"
+                id="description"
+                placeholder="What did you spend on?"
+            >
+
+            <input
+                type="number"
+                id="amount"
+                placeholder="Amount"
+            >
+
+            <input
+                type="date"
+                id="date"
+            >
+
+            <select id="category">
+
+                <option value="">Select Category</option>
+                <option value="Food">Food</option>
+                <option value="Travel">Travel</option>
+                <option value="College">College</option>
+                <option value="Shopping">Shopping</option>
+                <option value="Other">Other</option>
+
+            </select>
+
+            <button id="addExpense">Add Expense</button>
+
+        </div>
+
+<!-- Spending Statistics -->
+<div class="statistics">
+    <h2>Spending Statistics</h2>
+
+    <p>🍔 Food: ₹<span id="foodTotal">0</span></p>
+    <p>🚗 Travel: ₹<span id="travelTotal">0</span></p>
+    <p>🎓 College: ₹<span id="collegeTotal">0</span></p>
+    <p>🛍️ Shopping: ₹<span id="shoppingTotal">0</span></p>
+    <p>📦 Other: ₹<span id="otherTotal">0</span></p>
+</div>
+
+<!-- Spending Chart -->
+<div class="chart-box"></div>
+    <h2>Spending Chart</h2>
+    <canvas id="spendingChart"></canvas>
+</div>
+
+<!-- My Expenses -->
+        <h2>My Expenses</h2>
+
+        <!-- Category Filter -->
+
+        <select id="filterCategory">
+
+            <option value="All">All Categories</option>
+            <option value="Food">Food</option>
+            <option value="Travel">Travel</option>
+            <option value="College">College</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Other">Other</option>
+
+        </select>
+
+
+        <!-- Expense List -->
+
+        <div id="expenseList">
+            <!-- Expenses will appear here -->
+        </div>
+
+    </div>
+
+
+    <script
+     src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+     <script src="script.js"></script>
+</body>
+</html>
+
+/* Mobile layout */
+@media (max-width: 600px) {
+
+    .container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    .expense-form input,
+    .expense-form select,
+    .expense-form button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .expense-item {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .chart-box {
+        overflow-x: auto;
+    }
+}
